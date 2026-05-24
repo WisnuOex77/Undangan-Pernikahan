@@ -27,13 +27,15 @@ body {
 
 #cover {
     transition:
-        transform 1s ease-in-out,
-        opacity 1s ease-in-out;
+        transform 1.2s ease,
+        opacity 1.2s ease,
+        filter 1.2s ease;
 }
 
 .cover-opened {
-    transform: translateY(-100%);
+    transform: scale(1.05);
     opacity: 0;
+    filter: blur(8px);
     pointer-events: none;
 }
 
