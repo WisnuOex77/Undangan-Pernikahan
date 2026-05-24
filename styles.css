@@ -396,3 +396,45 @@ a[href*="maps"]:hover::before {
 
     left: 100%;
 }
+
+.arrow {
+    opacity: 0.2;
+    transform: translateY(0);
+}
+
+/* ATAS */
+.arrow1 {
+    animation: flow 1.5s infinite;
+}
+
+/* TENGAH */
+.arrow2 {
+    animation: flow 1.5s infinite;
+    animation-delay: 0.5s;
+}
+
+/* BAWAH */
+.arrow3 {
+    animation: flow 1.5s infinite;
+    animation-delay: 1s;
+}
+
+/* animasi naik turun + fade */
+@keyframes flow {
+    0% {
+        opacity: 0.2;
+        transform: translateY(0);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(4px);
+    }
+    50% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0.2;
+        transform: translateY(0);
+    }
+}
