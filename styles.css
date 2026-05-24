@@ -1,0 +1,396 @@
+/* =========================
+   BACKGROUND TEXTURE
+========================= */
+
+.bg-texture-a {
+    background-color: #f5ebda;
+    background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+}
+
+.bg-texture-b {
+    background-color: #e8ddc8;
+    background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   COVER ANIMATION
+========================= */
+
+#cover {
+    transition:
+        transform 1s ease-in-out,
+        opacity 1s ease-in-out;
+}
+
+.cover-opened {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.spin {
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+/* =========================
+   SWIPER
+========================= */
+
+.swiper-button-next,
+.swiper-button-prev {
+
+    color: #8b7355 !important;
+
+    transform: scale(0.6);
+
+    opacity: 0.7;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+
+    opacity: 1;
+
+    transform: scale(0.7);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #8b7355 !important;
+}
+
+/* =========================
+   FLOWER ANIMATION
+========================= */
+
+.petal {
+
+    position: absolute;
+
+    top: -10%;
+
+    z-index: 40;
+
+    background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23bba78d" d="M511.9 217.4c-6.8-21.7-25-37-46-41.5-12.8-2.7-26.6 .2-38 6.5-1.5-14.4-8.8-27.5-20.2-36.2-12-9.2-27.4-11.6-41.5-6.8-21.7 6.8-37 25-41.5 46-2.7 12.8 .2 26.6 6.5 38-14.4 1.5-27.5 8.8-36.2 20.2-9.2 12-11.6 27.4-6.8 41.5 6.8 21.7 25 37 46 41.5 12.8 2.7 26.6-.2 38-6.5 1.5 14.4 8.8 27.5 20.2 36.2 12 9.2 27.4 11.6 41.5 6.8 21.7-6.8 37-25 41.5-46 2.7-12.8-.2-26.6-6.5-38 14.4-1.5 27.5-8.8 36.2-20.2 9.2-12 11.6-27.4 6.8-41.5z"/></svg>');
+
+    background-size: contain;
+
+    background-repeat: no-repeat;
+
+    opacity: 0.6;
+
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+
+    0% {
+
+        transform:
+            translateY(-10vh)
+            rotate(0deg)
+            translateX(0);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg)
+            translateX(50px);
+
+        opacity: 0;
+    }
+
+}
+
+/* Hilangkan scrollbar */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+/* =========================
+   TOAST NOTIFICATION
+========================= */
+
+#toast {
+
+    position: fixed;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(100px);
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #2c241b;
+
+    padding: 14px 22px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+
+    transition: all 0.4s ease;
+
+    z-index: 9999;
+
+    border:
+        1px solid rgba(139, 115, 85, 0.2);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 14px;
+
+    pointer-events: none;
+}
+
+#toast.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* =========================
+   BUTTON HOVER EFFECT
+========================= */
+
+button,
+a {
+
+    transition:
+        all 0.3s ease;
+}
+
+button:hover,
+a:hover {
+
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CARD EFFECT
+========================= */
+
+.shadow-card {
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   IMAGE EFFECT
+========================= */
+
+.swiper-slide img {
+
+    transition:
+        transform 0.8s ease;
+}
+
+.swiper-slide-active img {
+
+    transform: scale(1.03);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f5ebda;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #bba78d;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8b7355;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+
+@media (max-width: 768px) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+
+        display: none !important;
+    }
+
+    #music-control {
+
+        bottom: 20px;
+        right: 20px;
+    }
+
+    #toast {
+
+        width: calc(100% - 40px);
+
+        text-align: center;
+    }
+
+}
+
+/* =========================
+   SMOOTH SECTION TRANSITION
+========================= */
+
+section {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* =========================
+   FADE EFFECT
+========================= */
+
+.fade-in {
+
+    animation:
+        fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   GLASS EFFECT
+========================= */
+
+.glass {
+
+    background:
+        rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(10px);
+
+    border:
+        1px solid rgba(255,255,255,0.2);
+}
+
+/* =========================
+   OPEN MAP BUTTON EFFECT
+========================= */
+
+a[href*="maps"] {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+a[href*="maps"]::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transition: 0.6s;
+}
+
+a[href*="maps"]:hover::before {
+
+    left: 100%;
+}

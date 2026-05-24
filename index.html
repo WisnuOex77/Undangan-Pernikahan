@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Undangan Pernikahan | Wisnu & Christia</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8b7355',
+                        secondary: '#bba78d',
+                        textDark: '#2c241b',
+                        textLight: '#5c544b',
+                        creamLight: '#f5ebda',
+                        creamDark: '#e8ddc8',
+                    },
+                    fontFamily: {
+                        serif: ['"Lora"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                        script: ['"Dancing Script"', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="font-sans text-textDark antialiased selection:bg-primary selection:text-white bg-texture-a">
+
+    <!-- MUSIC -->
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC BUTTON -->
+    <button id="music-control"
+        onclick="toggleMusic()"
+        class="fixed bottom-6 right-6 z-50 bg-white/60 backdrop-blur p-3 rounded-full shadow-lg border border-primary/30 hidden spin">
+
+        <i class="fas fa-compact-disc text-primary text-xl"></i>
+    </button>
+
+    <!-- FLOWER -->
+    <div id="flower-container"
+        class="fixed inset-0 pointer-events-none z-40 overflow-hidden hidden">
+    </div>
+
+    <!-- COVER -->
+    <section id="cover"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-center text-center bg-cover bg-center"
+        style="background-image:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+        url('images/cover.jpg');">
+
+        <div class="p-8 md:p-12 mx-4 max-w-md w-full relative"
+            data-aos="zoom-in"
+            data-aos-duration="1500">
+
+            <p class="text-white/90 tracking-[0.3em] text-xs uppercase mb-6 font-sans drop-shadow-md">
+                Pernikahan
+            </p>
+
+            <h1 class="font-script text-6xl md:text-7xl text-white mb-8 drop-shadow-lg">
+                Wisnu & Christia
+            </h1>
+
+            <div class="my-10 border-t border-b border-white/20 py-6">
+
+                <p class="text-white/80 text-xs mb-2 uppercase tracking-widest drop-shadow-md">
+                    Kepada Yth.
+                </p>
+
+                <h2 id="guest-name"
+                    class="text-xl font-serif font-bold text-white italic tracking-wide drop-shadow-md">
+
+                    Bapak/Ibu/Saudara/i
+
+                </h2>
+
+            </div>
+
+            <button onclick="openInvitation()"
+                class="inline-flex items-center gap-3 px-8 py-3 bg-primary/90 text-white hover:bg-primary transition-all duration-500 uppercase tracking-widest text-xs rounded-full shadow-xl">
+
+                <i class="far fa-envelope-open"></i>
+                Buka Undangan
+
+            </button>
+
+        </div>
+    </section>
+
+    <!-- MAIN -->
+    <main id="main-content"
+        class="min-h-screen opacity-0 transition-opacity duration-1000 relative">
+
+        <!-- HERO -->
+        <section
+            class="relative h-screen flex flex-col items-center justify-center text-center bg-cover bg-center bg-no-repeat"
+            style="background-image:
+            linear-gradient(rgba(245,235,217,0.8), rgba(245,235,217,0.95)),
+            url('images/hero.jpg');">
+
+            <div data-aos="fade-up"
+                data-aos-duration="1000"
+                class="px-6 relative z-10">
+
+                <p class="uppercase tracking-[0.4em] text-primary text-xs mb-6 font-sans">
+                    Hari Pernikahan Kami
+                </p>
+
+                <h1 class="font-script text-6xl md:text-7xl text-textDark mb-6 drop-shadow-sm font-semibold">
+                    Wisnu & Christia
+                </h1>
+
+                <div class="w-16 h-[1px] bg-primary/60 mx-auto mb-6"></div>
+
+                <p class="font-serif text-2xl text-textDark italic font-medium">
+                    Kamis, 28 Mei 2026
+                </p>
+
+            </div>
+        </section>
+
+        <!-- QUOTE -->
+        <section class="py-24 px-6 text-center bg-texture-a border-b border-primary/10">
+
+            <div class="max-w-2xl mx-auto">
+
+                <p class="font-serif italic text-xl md:text-2xl text-textLight leading-relaxed">
+                    "Cinta sejati bukanlah menemukan seseorang yang sempurna,
+                    melainkan melihat kesempurnaan dalam diri seseorang yang tidak sempurna."
+                </p>
+
+            </div>
+        </section>
+
+        <!-- MEMPELAI -->
+        <section class="py-24 relative bg-texture-b">
+
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+
+                <h2 class="font-sans uppercase tracking-[0.3em] text-xs text-primary mb-16 font-semibold">
+                    Sang Mempelai
+                </h2>
+
+                <div class="flex flex-col items-center justify-center gap-16">
+
+                    <!-- PRIA -->
+                    <div>
+
+                        <h3 class="font-script font-semibold text-5xl md:text-6xl text-textDark mb-4">
+                            Wisnu Tubagus
+                        </h3>
+
+                        <p class="font-serif italic text-lg text-textLight mb-2">
+                            Putra dari
+                        </p>
+
+                        <p class="font-serif italic text-xl text-textDark">
+                            Bapak Agus Kusnadi & Ibu Sri Wahyuni
+                        </p>
+
+                    </div>
+
+                    <div class="text-3xl font-serif text-primary/50 italic">
+                        dengan
+                    </div>
+
+                    <!-- WANITA -->
+                    <div>
+
+                        <h3 class="font-script font-semibold text-5xl md:text-6xl text-textDark mb-4">
+                            Christia Ningrum
+                        </h3>
+
+                        <p class="font-serif italic text-lg text-textLight mb-2">
+                            Putri dari
+                        </p>
+
+                        <p class="font-serif italic text-xl text-textDark">
+                            Ibu Supriyati
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ACARA -->
+        <section class="py-24 px-6 bg-texture-a">
+
+            <div class="max-w-4xl mx-auto text-center">
+
+                <h2 class="font-sans uppercase tracking-[0.3em] text-xs font-semibold text-primary mb-16">
+                    Rangkaian Acara
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-10">
+
+                    <!-- CARD 1 -->
+                    <div class="border border-primary/20 p-8 bg-white/50 shadow-md rounded-2xl">
+
+                        <h3 class="font-serif italic font-semibold text-2xl mb-6 text-textDark">
+                            Pemberkatan Nikah
+                        </h3>
+
+                        <p class="text-lg text-textDark mb-3">
+                            Senin, 11 Mei 2026
+                        </p>
+
+                        <p class="text-sm text-textLight mb-6">
+                            Pukul : 11.00 WIB - selesai
+                        </p>
+
+                        <p class="font-medium text-textDark mb-8">
+                            Gereja GPDI Anugrah Bogatama
+                        </p>
+
+                        <a href="https://maps.app.goo.gl/ISI_LINK_MAP_1"
+                            target="_blank"
+                            class="inline-flex items-center gap-3 px-6 py-3 bg-primary text-white rounded-full shadow-lg hover:scale-105 hover:bg-secondary transition-all duration-300 uppercase tracking-widest text-xs">
+
+                            <i class="fas fa-map-marker-alt"></i>
+                            Open Map
+
+                        </a>
+
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="border border-primary/20 p-8 bg-white/50 shadow-md rounded-2xl">
+
+                        <h3 class="font-serif italic font-semibold text-2xl mb-6 text-textDark">
+                            Resepsi Pernikahan
+                        </h3>
+
+                        <p class="text-lg text-textDark mb-3">
+                            Kamis, 28 Mei 2026
+                        </p>
+
+                        <p class="text-sm text-textLight mb-6">
+                            Pukul : 09.00 WIB - selesai
+                        </p>
+
+                        <p class="font-medium text-textDark mb-8">
+                            Rumah Mempelai Wanita
+                        </p>
+
+                        <a href="https://maps.app.goo.gl/ISI_LINK_MAP_2"
+                            target="_blank"
+                            class="inline-flex items-center gap-3 px-6 py-3 bg-primary text-white rounded-full shadow-lg hover:scale-105 hover:bg-secondary transition-all duration-300 uppercase tracking-widest text-xs">
+
+                            <i class="fas fa-map-marker-alt"></i>
+                            Open Map
+
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI -->
+        <section class="py-24 px-6 bg-texture-b">
+
+            <h2 class="font-sans uppercase tracking-[0.3em] text-xs font-semibold text-center text-primary mb-16">
+                Galeri Kami
+            </h2>
+
+            <div class="swiper mySwiper w-full max-w-2xl mx-auto rounded-2xl shadow-lg overflow-hidden">
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <img src="images/image1.jpg"
+                            class="w-full h-96 md:h-[600px] object-cover">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="images/image2.jpg"
+                            class="w-full h-96 md:h-[600px] object-cover">
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img src="images/image3.jpg"
+                            class="w-full h-96 md:h-[600px] object-cover">
+                    </div>
+
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+
+            </div>
+        </section>
+
+        <!-- AMPLOP -->
+        <section class="py-24 px-6 text-center bg-texture-a border-t border-primary/10">
+
+            <div class="flex flex-col items-center justify-center mb-8">
+
+                <i class="fa-regular fa-envelope text-4xl text-primary mb-4"></i>
+
+                <h2 class="font-sans uppercase tracking-[0.3em] text-xs font-semibold text-primary">
+                    Amplop Digital
+                </h2>
+
+            </div>
+
+            <p class="max-w-xl mx-auto text-textLight text-sm leading-relaxed mb-12">
+                Doa restu Anda adalah hadiah terindah.
+                Jika Anda ingin memberikan tanda kasih secara digital,
+                Anda dapat mentransfer melalui nomor rekening berikut:
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+
+                <!-- DANA -->
+                <div class="p-6 bg-white/50 shadow-sm rounded-2xl border border-primary/20">
+
+                    <h3 class="font-bold text-primary mb-2">
+                        DANA / GOPAY
+                    </h3>
+
+                    <p class="text-xl font-serif text-textDark tracking-widest mb-4"
+                        id="rek-ewallet">
+                        082282164744
+                    </p>
+
+                    <button onclick="copyRekening('rek-ewallet')"
+                        class="text-xs uppercase tracking-widest border border-primary text-primary px-4 py-2 rounded-full hover:bg-primary hover:text-white transition">
+
+                        Salin
+                    </button>
+
+                </div>
+
+                <!-- BRI -->
+                <div class="p-6 bg-white/50 shadow-sm rounded-2xl border border-primary/20">
+
+                    <h3 class="font-bold text-primary mb-2">
+                        BRI
+                    </h3>
+
+                    <p class="text-xl font-serif text-textDark tracking-widest mb-4"
+                        id="rek-bri">
+                        814201015229534
+                    </p>
+
+                    <button onclick="copyRekening('rek-bri')"
+                        class="text-xs uppercase tracking-widest border border-primary text-primary px-4 py-2 rounded-full hover:bg-primary hover:text-white transition">
+
+                        Salin
+                    </button>
+
+                </div>
+
+                <!-- BNI -->
+                <div class="p-6 bg-white/50 shadow-sm rounded-2xl border border-primary/20 md:col-span-2">
+
+                    <h3 class="font-bold text-primary mb-2">
+                        BNI
+                    </h3>
+
+                    <p class="text-xl font-serif text-textDark tracking-widest mb-4"
+                        id="rek-bni">
+                        1794032860
+                    </p>
+
+                    <button onclick="copyRekening('rek-bni')"
+                        class="text-xs uppercase tracking-widest border border-primary text-primary px-4 py-2 rounded-full hover:bg-primary hover:text-white transition">
+
+                        Salin
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-16 text-center bg-texture-b">
+
+            <h2 class="font-script text-4xl mb-4 text-textDark">
+                Wisnu & Christia
+            </h2>
+
+            <p class="text-xs font-sans text-textLight mb-8">
+                Terima kasih atas doa dan restu yang telah diberikan.
+            </p>
+
+        </footer>
+
+    </main>
+
+    <!-- TOAST -->
+    <div id="toast"
+        class="font-sans text-sm tracking-wider rounded-xl">
+    </div>
+
+    <!-- SCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
